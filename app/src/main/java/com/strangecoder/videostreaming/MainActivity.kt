@@ -20,13 +20,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        lifecycleScope.launch {
+        /*lifecycleScope.launch {
             val result = retrofitService.getPopularVideosAsync().await()
             videoList.value = result
         }
 
-        videoList.observe(this, {
+        videoList.observe(this) {
             binding.videoViewPager.adapter = ViewPagerVideoAdapter(it)
-        })
+        }*/
+
+        var list : ArrayList<Video> = ArrayList()
+        list.add(Video("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"))
+        list.add(Video("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"))
+        list.add(Video("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"))
+        list.add(Video("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"))
+        list.add(Video("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"))
+        binding.videoViewPager.adapter = ViewPagerVideoAdapter(list)
     }
 }

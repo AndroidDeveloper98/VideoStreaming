@@ -7,7 +7,7 @@ import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
 import com.strangecoder.videostreaming.network.model.Video
 
-class ViewPagerVideoAdapter(private val videos: List<Video>) :
+class ViewPagerVideoAdapter(private val videos: ArrayList<Video>) :
     RecyclerView.Adapter<ViewPagerVideoAdapter.VideoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
